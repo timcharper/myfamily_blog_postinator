@@ -1,0 +1,14 @@
+myfamily:
+  
+blogs:
+  secret_blog:
+    adapter: BloggerPrivate
+    login: mysecretemail@mysecretmailprovider.com
+    password: secret
+    url: http://privateblog.blogspot.com/
+    selectors:
+      date: "div.blog-posts > h2"
+      time: "div.blog-posts > div.post a.timestamp-link"
+      title: "div.blog-posts > div.post > h3.post-title > a"
+      link: "div.blog-posts > div.post > h3.post-title > a"
+      body: "div.blog-posts > div.post > div.post-body"
