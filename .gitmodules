@@ -1,0 +1,3 @@
+[submodule "vendor/gem/web-sickle"]
+	path = vendor/gem/web-sickle
+	url = git://github.com/timcharper/web-sickle.git
