@@ -7,3 +7,4 @@ Feature: List posts from a private blog
   Scenario: Log in to happyharperz
     When I allocate an adapter for happyharperz
     Then it should return a list of posts with links, titles, dates and bodies
+    And it should return the latest post

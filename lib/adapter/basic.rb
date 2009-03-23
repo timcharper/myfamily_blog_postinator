@@ -1,8 +1,9 @@
 class Adapter::Basic
-  attr_reader :results
+  attr_reader :results, :name
   
-  def initialize(config)
-    @config = config
+  def initialize(name)
+    @config = CONFIG['blogs'][name]
+    @name = name
     fetch
   end
   

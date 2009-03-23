@@ -1,7 +1,7 @@
 class Adapter::BloggerPrivate < Adapter::Basic
   attr_reader :logged_in
   
-  def initialize(config)
+  def initialize(name)
     super
   end
   
@@ -9,7 +9,6 @@ class Adapter::BloggerPrivate < Adapter::Basic
     @agent ||= WWW::Mechanize.new { |a|
       a.follow_meta_refresh = true
     }
-    
   end
   
   def login
