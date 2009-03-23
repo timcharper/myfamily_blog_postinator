@@ -1,5 +1,6 @@
-myfamily:
-  
+my_family:
+  login: BlogPostinator
+  password: letmein
 blogs:
   secret_blog:
     adapter: BloggerPrivate
