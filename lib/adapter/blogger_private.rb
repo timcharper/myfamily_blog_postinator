@@ -5,6 +5,12 @@ class Adapter::BloggerPrivate < Adapter::Basic
     super
   end
   
+  def agent
+    @agent ||= WWW::Mechanize.new { |a|
+      a.follow_meta_refresh = true
+    }
+  end
+  
   def login
     @logged_in ||= (
       page = agent.get(@config['url'])
