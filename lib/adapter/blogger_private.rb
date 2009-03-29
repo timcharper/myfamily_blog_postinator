@@ -5,6 +5,17 @@ class Adapter::BloggerPrivate < Adapter::Basic
     super
   end
   
+  def login
+    @logged_in ||= (
+      page = agent.get(@config['url'])
+      @blog_page = page.form_with(:name => 'loginForm') do |form|
+        form.Email = @config['login']
+        form.Passwd = @config['password']
+      end.submit
+      true
+    )
+  end
+  
   def selectors
     @config['selectors']
   end
