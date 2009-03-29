@@ -5,28 +5,12 @@ class Adapter::BloggerPrivate < Adapter::Basic
     super
   end
   
-  def agent
-    @agent ||= WWW::Mechanize.new { |a|
-      a.follow_meta_refresh = true
-    }
-  end
-  
-  def login
-    @logged_in ||= (
-      page = agent.get(@config['url'])
-      @blog_page = page.form_with(:name => 'loginForm') do |form|
-        form.Email = @config['login']
-        form.Passwd = @config['password']
-      end.submit
-      true
-    )
-  end
-  
   def selectors
     @config['selectors']
   end
   
   def fetch
+    @config['url']
     login
     
     datetimes = 
@@ -43,7 +27,7 @@ class Adapter::BloggerPrivate < Adapter::Basic
     links = (@blog_page.parser / selectors["link"]).map { |n| n.attributes['href'].to_s }
     bodies = (@blog_page.parser / selectors["body"]).map { |n| n.inner_html }
     
-    @results = datetimes.zip(titles, links, bodies).map do |datetime, title, link, body|
+    datetimes.zip(titles, links, bodies).map do |datetime, title, link, body|
       {
         :datetime => datetime,
         :body => body,

@@ -47,7 +47,7 @@ class MyFamily
     )
   end
   
-  def post_blog_entry(blog_name, blog_entry)
+  def post_article(blog_name, blog_entry)
     navigate_to_add_news
     
     select_form(:name => 'EditContent')

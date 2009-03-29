@@ -1,17 +1,20 @@
 class Adapter::Basic
-  attr_reader :results, :name
+  attr_reader :name
   
   def initialize(name)
     @config = CONFIG['blogs'][name]
     @name = name
-    fetch
   end
   
   def fetch
     raise "implement me"
   end
   
-  def last_post_datetime
-    @results.first[:datetime]
+  def last_article_datetime
+    articles.first[:datetime]
+  end
+  
+  def articles
+    @articles ||= fetch
   end
 end
