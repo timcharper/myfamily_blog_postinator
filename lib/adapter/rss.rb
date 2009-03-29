@@ -20,7 +20,7 @@ class Adapter::RSS < Adapter::Basic
     rss.items.map do |article|
       {
         :datetime => article.pubDate,
-        :body => eval_entities(article.description),
+        :body => article.content_encoded || eval_entities(article.description),
         :link => article.link,
         :title => article.title
       }
