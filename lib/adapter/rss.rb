@@ -7,7 +7,7 @@ class Adapter::RSS < Adapter::Basic
   end
   
   def eval_entities(content)
-    content = content.dup
+    content = content.to_s.dup
     content.gsub!('&lt;', '<')
     content.gsub!('&gt;', '>')
     content.gsub!('&amp;', '&')
@@ -19,8 +19,8 @@ class Adapter::RSS < Adapter::Basic
     rss = SimpleRSS.parse(content)
     rss.items.map do |article|
       {
-        :datetime => article.pubDate,
-        :body => article.content_encoded || eval_entities(article.description),
+        :datetime => article.pubDate || article.published,
+        :body => article.content_encoded || eval_entities(article.content || article.description).to_s,
         :link => article.link,
         :title => article.title
       }
