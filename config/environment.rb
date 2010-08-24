@@ -5,8 +5,8 @@ $: << LIBROOT
 $: << APPROOT + '/vendor/gem'
 
 require 'rubygems'
-
-gem 'mechanize', '0.9.0'
+require 'bundler'
+Bundler.setup
 require 'activesupport'
 require 'yaml'
 require 'web-sickle/init.rb'

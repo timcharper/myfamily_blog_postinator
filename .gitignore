@@ -1,2 +1,3 @@
 config/config.yml
 config/last_article_datetimes.yml
+.bundle
