@@ -7,6 +7,7 @@ $: << APPROOT + '/vendor/gem'
 require 'rubygems'
 require 'bundler'
 Bundler.setup
+require 'thread'
 require 'activesupport'
 require 'yaml'
 require 'web-sickle/init.rb'

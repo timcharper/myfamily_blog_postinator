@@ -1,33 +1,18 @@
---- 
-specs: 
-- activesupport: 
-    version: 2.3.2
-- hpricot: 
-    version: 0.8.1
-- nokogiri: 
-    version: 1.4.3.1
-- mechanize: 
-    version: 0.9.0
-- simple-rss: 
-    version: "1.2"
-hash: bf42949535e36c8b73358e6bf3a58bc01474ed85
-sources: 
-- Rubygems: 
-    uri: http://gemcutter.org
-dependencies: 
-  mechanize: 
-    version: = 0.9.0
-    group: 
-    - :default
-  simple-rss: 
-    version: = 1.2
-    group: 
-    - :default
-  activesupport: 
-    version: = 2.3.2
-    group: 
-    - :default
-  hpricot: 
-    version: = 0.8.1
-    group: 
-    - :default
+GEM
+  remote: http://rubygems.org/
+  specs:
+    activesupport (2.3.2)
+    hpricot (0.8.1)
+    mechanize (0.9.0)
+      nokogiri (>= 1.0.7)
+    nokogiri (1.4.3.1)
+    simple-rss (1.2)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  activesupport (= 2.3.2)
+  hpricot (= 0.8.1)
+  mechanize (= 0.9.0)
+  simple-rss (= 1.2)
